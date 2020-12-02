@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <img src="../assets/icon/favicon.png" style="width: 7%;">
+      MusicApp
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+<!-- Searchbar with a placeholder -->
+<ion-searchbar [(ngModel)]="pesquisa" (ionChange)="filtrar(pesquisa)" placeholder="Procure um artista ou uma música" color="danger" class="teste" debounce="500" animated></ion-searchbar>
+
+<ion-list>
+  <ion-item *ngFor="let artista of listaFiltrada" (click)="abrirArtista(artista)">
+    <ion-avatar item-start>
+      <img src="../assets/imgs/{{ artista.icon ? artista.icon : 'default' }}.png">
+    </ion-avatar>
+      <h2 class="artist-style">{{ artista.name }}</h2>
+      <!-- <p>{{ artista.quantity }} músicas</p> -->
+  </ion-item>
+</ion-list>
+
+</ion-content>
