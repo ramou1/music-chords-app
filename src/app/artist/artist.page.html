@@ -9,4 +9,17 @@
 
 <ion-content>
 
+  <ion-list>
+    <ion-list-header>Item thumbnails</ion-list-header>
+    <ion-item *ngFor="let musica of musicas" (click)="abrirLetra(musica)">
+      <ion-thumbnail slot="start">
+        <img class="radius-thumb" src="../assets/imgs/{{ musica.icon ? musica.icon : 'default-music' }}.png">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>Lorem ipsum</h3>
+        <p>consectetur adipiscing elit. Duis ut urna neque.</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
 </ion-content>

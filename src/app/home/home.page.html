@@ -10,15 +10,61 @@
 <ion-content padding>
 
 <!-- Searchbar with a placeholder -->
-<ion-searchbar [(ngModel)]="pesquisa" (ionChange)="filtrar(pesquisa)" placeholder="Procure um artista ou uma música" color="danger" class="teste" debounce="500" animated></ion-searchbar>
+<ion-searchbar [(ngModel)]="pesquisa" (ionChange)="filtrar(pesquisa)" placeholder="Procure um artista ou uma música" color="primary" debounce="500" animated></ion-searchbar>
 
-<ion-list>
+<ion-list *ngIf="searching">
   <ion-item *ngFor="let artista of listaFiltrada" (click)="abrirArtista(artista)">
     <ion-avatar item-start>
-      <img src="../assets/imgs/{{ artista.icon ? artista.icon : 'default' }}.png">
+      <img src="../assets/imgs/{{ artista.icon ? artista.icon : 'default-artist' }}.png">
     </ion-avatar>
       <h2 class="artist-style">{{ artista.name }}</h2>
       <!-- <p>{{ artista.quantity }} músicas</p> -->
+  </ion-item>
+</ion-list>
+
+<hr>
+
+<h1 class="titles">Recent Artists</h1>
+<ion-slides [options]="slideOpts">
+  <ion-slide>
+    <img class="radius-thumb" src="../assets/imgs/default-artist.png"> 
+    <!-- <h2 class="song-name-style">{{ song.name }}</h2> -->
+    <!-- <p class="song-artist-style">{{ song.artist }}</p> -->
+  </ion-slide>
+  <ion-slide>
+    <img class="radius-thumb" src="../assets/imgs/default-artist.png">
+    <!-- <h2 class="song-name-style">{{ song.name }}</h2> -->
+    <!-- <p class="song-artist-style">{{ song.artist }}</p> -->
+  </ion-slide>
+  <ion-slide>
+    <img class="radius-thumb" src="../assets/imgs/default-artist.png">
+    <!-- <h2 class="song-name-style">{{ song.name }}</h2> -->
+    <!-- <p class="song-artist-style">{{ song.artist }}</p> -->
+  </ion-slide>
+  <ion-slide>
+    <img class="radius-thumb" src="../assets/imgs/default-artist.png">
+    <!-- <h2 class="song-name-style">{{ song.name }}</h2> -->
+    <!-- <p class="song-artist-style">{{ song.artist }}</p> -->
+  </ion-slide>
+  <ion-slide>
+    <img class="radius-thumb" src="../assets/imgs/default-artist.png">
+    <!-- <h2 class="song-name-style">{{ song.name }}</h2> -->
+    <!-- <p class="song-artist-style">{{ song.artist }}</p> -->
+  </ion-slide>
+</ion-slides>
+
+<hr>
+
+<ion-list *ngIf="!searching">
+  <ion-list-header class="titles">Trending Songs</ion-list-header>
+  <ion-item *ngFor="let song of trendingSongs">
+    <ion-thumbnail slot="start">
+      <img class="radius-thumb" src="../assets/imgs/{{ song.icon ? song.icon : 'default-music' }}.png">
+    </ion-thumbnail>
+    <ion-label>
+      <h2 class="song-name-style">{{ song.name }}</h2>
+      <p class="song-artist-style">{{ song.artist }}</p>
+    </ion-label>
   </ion-item>
 </ion-list>
 

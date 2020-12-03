@@ -13,6 +13,12 @@ export class HomePage {
   constructor(public navCtrl: NavController, private router: Router) {
   }
 
+  searching: boolean = false;
+  slideOpts = {
+    loop: false,
+    slidesPerView: 2.5,
+    spaceBetween: 15
+  };
   listaFiltrada: any[];
   listaArtistas: any = [
     {
@@ -54,6 +60,52 @@ export class HomePage {
     }
   ];
 
+  trendingSongs: any = [
+    {
+      'name': 'All My Love',
+      'artist': 'Blank',
+      'icon': 'default-music', 
+      'genre': 'R&B',
+      'id': '50'
+    },
+    {
+      'name': 'Numb',
+      'artist': 'Deftones',
+      'icon': 'default-music',
+      'genre': 'Indie',
+      'id': '51'
+    },
+    {
+      'name': 'Something About You',
+      'artist': 'Dark Pleasures',
+      'icon': 'default-music',
+      'genre': 'Pop',
+      'id': '53'
+    },
+    {
+      'name': 'My House',
+      'artist': 'Tina Markley',
+      'icon': 'default-music',
+      'genre': 'Hip-Hop',
+      'id': '43'
+    }
+    ,
+    {
+      'name': 'Take a Minute',
+      'artist': 'Bob Blob',
+      'icon': 'default-music',
+      'genre': 'Pop',
+      'id': '48'
+    },
+    {
+      'name': 'Reaching the Stars',
+      'artist': 'The Devices',
+      'icon': 'default-music',
+      'genre': 'Alternative',
+      'id': '76'
+    }
+  ];
+
   ionViewDidEnter() {
     this.loadData();
     this.listaFiltrada = this.listaArtistas;
@@ -73,6 +125,7 @@ export class HomePage {
   }
 
   filtrar(pesquisa) {
+    this.searching = true;
     this.listaFiltrada = this.listaArtistas.filter(artista => {
         return (artista.name.toLowerCase().indexOf(pesquisa.toLowerCase()) > -1);
     });
