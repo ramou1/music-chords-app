@@ -26,30 +26,11 @@
 
 <h1 class="titles">Recent Artists</h1>
 <ion-slides [options]="slideOpts">
-  <ion-slide>
-    <img class="radius-thumb" src="../assets/imgs/default-artist.png"> 
-    <!-- <h2 class="song-name-style">{{ song.name }}</h2> -->
-    <!-- <p class="song-artist-style">{{ song.artist }}</p> -->
-  </ion-slide>
-  <ion-slide>
-    <img class="radius-thumb" src="../assets/imgs/default-artist.png">
-    <!-- <h2 class="song-name-style">{{ song.name }}</h2> -->
-    <!-- <p class="song-artist-style">{{ song.artist }}</p> -->
-  </ion-slide>
-  <ion-slide>
-    <img class="radius-thumb" src="../assets/imgs/default-artist.png">
-    <!-- <h2 class="song-name-style">{{ song.name }}</h2> -->
-    <!-- <p class="song-artist-style">{{ song.artist }}</p> -->
-  </ion-slide>
-  <ion-slide>
-    <img class="radius-thumb" src="../assets/imgs/default-artist.png">
-    <!-- <h2 class="song-name-style">{{ song.name }}</h2> -->
-    <!-- <p class="song-artist-style">{{ song.artist }}</p> -->
-  </ion-slide>
-  <ion-slide>
-    <img class="radius-thumb" src="../assets/imgs/default-artist.png">
-    <!-- <h2 class="song-name-style">{{ song.name }}</h2> -->
-    <!-- <p class="song-artist-style">{{ song.artist }}</p> -->
+  <ion-slide *ngFor="let artista of listaArtistas">
+    <div class="slide">
+    <img class="radius-thumb" src="../assets/imgs/{{ artista.icon ? artista.icon : 'default-music' }}.png"> 
+    <h3>{{ artista.name }}</h3>
+    </div>
   </ion-slide>
 </ion-slides>
 

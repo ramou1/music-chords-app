@@ -13,6 +13,7 @@ export class HomePage {
   constructor(public navCtrl: NavController, private router: Router) {
   }
 
+  pesquisa: any;
   searching: boolean = false;
   slideOpts = {
     loop: false,
@@ -29,7 +30,7 @@ export class HomePage {
     },
     {
       'name': 'Lana del Rey',
-      'icon': 'default',
+      'icon': null,
       'genre': 'Indie',
       'id': '51'
     },
@@ -41,20 +42,20 @@ export class HomePage {
     },
     {
       'name': 'Brockhampton',
-      'icon': 'default',
+      'icon': null,
       'genre': 'Hip-Hop',
       'id': '43'
     }
     ,
     {
       'name': 'Harry Styles',
-      'icon': 'default',
+      'icon': null,
       'genre': 'Pop',
       'id': '48'
     },
     {
       'name': 'John Frusciante',
-      'icon': 'default',
+      'icon': null,
       'genre': 'Alternative',
       'id': '76'
     }
@@ -125,7 +126,14 @@ export class HomePage {
   }
 
   filtrar(pesquisa) {
-    this.searching = true;
+
+    if(pesquisa.length > 0) {
+      this.searching = true;
+    }
+    else {
+      this.searching = false;
+    }
+       
     this.listaFiltrada = this.listaArtistas.filter(artista => {
         return (artista.name.toLowerCase().indexOf(pesquisa.toLowerCase()) > -1);
     });
