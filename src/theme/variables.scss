@@ -8,6 +8,10 @@
   border-radius: 10px !important;
 }
 
+.radius-avatar {
+  border-radius: 50%;
+}
+
 .titles {
   color: #bfbfbf;
   font-size: 1.4rem;
@@ -16,7 +20,7 @@
 }
 
 :root {
-  --ion-color-primary: #ff8e31;
+  --ion-color-primary: #336388;
   --ion-color-primary-rgb: 66,140,255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255,255,255;

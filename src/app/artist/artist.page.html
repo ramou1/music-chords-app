@@ -1,16 +1,35 @@
 <ion-header>
-  <ion-back-button (click)=voltar()></ion-back-button>
-  <ion-toolbar>
-    <ion-title>
-      Artista
-    </ion-title>
+  <ion-toolbar color="primary" class="ion-no-border">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>{{ artistaEscolhido.name ? artistaEscolhido.name : '' }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar color="primary" class="borda-inferior">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4"></ion-col>
+        <ion-col size="4">
+            <img src="../assets/imgs/{{ artistaEscolhido.icon ? artistaEscolhido.icon : 'default-artist' }}.png" class="radius-avatar">
+        </ion-col>
+        <ion-col size="4"></ion-col>
+      </ion-row>
+    </ion-grid>
+
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content>
 
   <ion-list>
-    <ion-list-header>Item thumbnails</ion-list-header>
+    <ion-list-header>Musics</ion-list-header>
     <ion-item *ngFor="let musica of musicas" (click)="abrirLetra(musica)">
       <ion-thumbnail slot="start">
         <img class="radius-thumb" src="../assets/imgs/{{ musica.icon ? musica.icon : 'default-music' }}.png">

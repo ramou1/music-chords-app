@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ArtistPage } from '../artist/artist.page';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ export class HomePage {
   slideOpts = {
     loop: false,
     slidesPerView: 2.5,
-    spaceBetween: 15
+    spaceBetween: 15 
   };
   listaFiltrada: any[];
   listaArtistas: any = [
@@ -58,6 +58,18 @@ export class HomePage {
       'icon': null,
       'genre': 'Alternative',
       'id': '76'
+    },
+    {
+      'name': 'The Neighbourhood',
+      'icon': null,
+      'genre': 'Alternative',
+      'id': '81'
+    },
+    {
+      'name': 'Eminem',
+      'icon': null,
+      'genre': 'Rap',
+      'id': '58'
     }
   ];
 
@@ -121,12 +133,26 @@ export class HomePage {
 
 
   abrirArtista(artista) {
-    this.router.navigate(['/artist', { artista: artista }]);
+    // this.router.navigate(['/artist', { artista: artista }]);
     // this.navCtrl.navigateForward(['/artist', { artista: artista }]);   
+    let navigationExtras: NavigationExtras = {
+      state: {
+        artista: artista
+      }
+    };
+    this.router.navigate(['artist'], navigationExtras);
+  }
+
+  abrirCifra(song) { 
+    let navigationExtras: NavigationExtras = {
+      state: {
+        musica: song
+      }
+    };
+    this.router.navigate(['music-page'], navigationExtras);
   }
 
   filtrar(pesquisa) {
-
     if(pesquisa.length > 0) {
       this.searching = true;
     }

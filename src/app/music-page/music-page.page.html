@@ -1,9 +1,103 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>music-page</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+
+
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header>
 
-<ion-content>
+  <ion-toolbar color="primary">
+    <ion-title>{{musicaEscolhida.name ? musicaEscolhida.name : '' }}</ion-title>
+    <h3 class="artista">{{musicaEscolhida.artist ? musicaEscolhida.artist : '' }}</h3>
+  </ion-toolbar>
 
-</ion-content>
+  <!-- <ion-content>
+
+    <ion-text>
+      <h3>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Nunc gravida accumsan sapien a iaculis.
+        Quisque tempus, leo iaculis interdum luctus, augue tellus iaculis nisi,
+        non auctor mauris ligula ut mi. Nunc ac tincidunt est.
+
+        Integer quis justo tincidunt felis iaculis finibus.
+        Quisque viverra est ac nulla blandit faucibus.
+
+        Sed semper sit amet turpis sit amet auctor.
+        Curabitur ut eros pulvinar, vulputate neque at, ullamcorper massa.
+        In maximus, orci id auctor ornare, urna tellus ornare diam,
+        sed faucibus magna purus nec massa.
+        Phasellus scelerisque luctus dignissim.
+
+        Vivamus tempor dui in odio lobortis,
+        imperdiet dignissim augue auctor.
+        Cras pulvinar quis augue dictum pharetra.
+
+        Donec non efficitur elit, non mattis ante.
+        Praesent id maximus felis, quis volutpat justo.
+        Aliquam commodo leo ut nisi posuere lobortis.
+        Morbi et dapibus leo. Duis molestie,
+        diam nec vestibulum blandit,
+        nulla est cursus magna,
+        a dictum lectus massa ut nulla.
+
+        Maecenas magna nisl, commodo fermentum libero ac,
+        placerat mollis urna. Fusce est neque,
+        tincidunt eleifend eros ut,
+        fringilla facilisis ex.
+        Integer sit amet hendrerit elit,
+        a congue turpis.
+
+        Curabitur dapibus dui eros, eu tempus nunc malesuada vitae.
+        Suspendisse potenti.
+        Quisque fringilla justo ac feugiat maximus.
+        Mauris in semper purus, vel pretium felis.
+        Sed convallis tincidunt lacus vel pulvinar.
+      </h3>
+    </ion-text>
+
+  </ion-content> -->
+
+
+  <ion-content fullscreen class="ion-padding">
+    <p class="lyrics">
+        <!-- <ion-text color="secondary">pulvinar</ion-text> -->
+
+        Lorem ipsum dolor sit amet,<br>
+        consectetur adipiscing elit. <br>
+        Nunc gravida accumsan sapien.<br>
+        Quisque tempus, <br>
+        leo iaculis interdum luctus, <br>
+        augue tellus iaculis nisi,<br>
+        non auctor mauris ligula ut mi. <br>
+        Nunc ac tincidunt est.<br><br>
+
+        Integer quis justo <br>
+        felis iaculis finibus.<br>
+        Quisque viverra est <br>
+        ac nulla blandit faucibus.<br><br>
+
+        Sed semper sit amet turpis <br>
+        sit amet auctor.<br>
+        Curabitur ut eros pulvinar, <br>
+        vulputate neque at, <br>
+        ullamcorper massa.<br>
+        In maximus, <br><br>
+
+        orci id auctor ornare, <br>
+        urna tellus ornare diam,<br>
+        sed faucibus magna <br>
+        purus nec massa.<br>
+        Phasellus scelerisque <br>
+        luctus dignissim.<br><br>
+
+        Vivamus tempor dui in odio lobortis,<br>
+        imperdiet dignissim augue auctor.<br>
+        Cras pulvinar quis augue dictum pharetra.
+    </p>
+  </ion-content>

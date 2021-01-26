@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-artist',
@@ -9,48 +9,61 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArtistPage {
 
-  constructor(public navCtrl: NavController, private route: ActivatedRoute) { }
+  artistaEscolhido: any;
 
-  artistaEscolhido = this.route.snapshot.paramMap.get('artista');
-  // artistaEscolhido: any = this.navParams.get('artista');
+  constructor(public navCtrl: NavController, private route: ActivatedRoute, private router: Router) { 
+
+    this.route.queryParams.subscribe(params => {
+      let getNav = this.router.getCurrentNavigation();
+      if (getNav.extras.state) {
+        this.artistaEscolhido = getNav.extras.state.artista;
+      }
+    });
+   }
 
   musicas: any = [
     {
       'name': 'All My Love',
       'icon': 'default-music', 
       'genre': 'R&B',
-      'id': '50'
+      'id': '50',
+      'artist-id': '50'
     },
     {
       'name': 'Numb',
       'icon': 'default-music',
       'genre': 'Indie',
-      'id': '51'
+      'id': '51',
+      'artist-id': '50'
     },
     {
       'name': 'Something About You',
       'icon': 'default-music',
       'genre': 'Pop',
-      'id': '53'
+      'id': '53',
+      'artist-id': '50'
     },
     {
       'name': 'My House',
       'icon': 'default-music',
       'genre': 'Hip-Hop',
-      'id': '43'
+      'id': '43',
+      'artist-id': '50'
     }
     ,
     {
       'name': 'Take a Minute',
       'icon': 'default-music',
       'genre': 'Pop',
-      'id': '48'
+      'id': '48',
+      'artist-id': '50'
     },
     {
       'name': 'Reaching the Stars',
       'icon': 'default-music',
       'genre': 'Alternative',
-      'id': '76'
+      'id': '76',
+      'artist-id': '50'
     }
   ];
 
@@ -58,9 +71,10 @@ export class ArtistPage {
     console.log("Artista Escolhido: ", this.artistaEscolhido);
   }
 
-  voltar() {
-    this.navCtrl.navigateBack('/home');
-  }
+
+  // voltar() {
+  //   this.navCtrl.navigateBack('/home');
+  // }
 
   abrirLetra(musica) {
     console.log("Abrir letra: ", musica);
