@@ -4,8 +4,6 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
 
-
-
     <ion-buttons slot="end">
       <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
     </ion-buttons>
@@ -15,6 +13,7 @@
     <ion-title>{{musicaEscolhida.name ? musicaEscolhida.name : '' }}</ion-title>
     <h3 class="artista">{{musicaEscolhida.artist ? musicaEscolhida.artist : '' }}</h3>
   </ion-toolbar>
+</ion-header>
 
   <!-- <ion-content>
 
@@ -100,4 +99,72 @@
         imperdiet dignissim augue auctor.<br>
         Cras pulvinar quis augue dictum pharetra.
     </p>
+
+    <!-- <ion-list>
+      <ion-list-header>
+        Adjust Display
+      </ion-list-header>
+
+      <ion-item>
+        <ion-range min="1000" max="2000" step="100" value="1400" snaps color="primary">
+          <ion-icon slot="start" size="small" color="primary" name="thermometer"></ion-icon>
+          <ion-icon slot="end" color="primary" name="thermometer"></ion-icon>
+        </ion-range>
+      </ion-item>
+    </ion-list> -->
+
   </ion-content>
+
+<!-- Footer without a border -->
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-range min="0" max="100" step="10" value="50" snaps color="primary">
+          <!-- <ion-icon slot="start" [name]="{{rolagem_automatica}}"></ion-icon> -->
+          <ion-icon *ngIf="!rolagem_automatica_escolha" slot="start" name="play-outline" (click)="rolagem()"></ion-icon>
+          <ion-icon *ngIf="rolagem_automatica_escolha" slot="start" name="stop-outline" (click)="rolagem()"></ion-icon>
+          <ion-icon slot="start" size="small" color="primary" name="rocket-outline"></ion-icon>
+          <ion-icon slot="end" color="primary" name="rocket-outline"></ion-icon>
+        </ion-range>
+  </ion-toolbar>
+</ion-footer>
+
+
+<script>
+  let currentPopover = null;
+
+  const buttons = document.querySelectorAll('ion-button');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', handleButtonClick);
+  }
+
+  async function handleButtonClick(ev) {
+    popover = await popoverController.create({
+      component: 'popover-example-page',
+      event: ev,
+      translucent: true
+    });
+    currentPopover = popover;
+    return popover.present();
+  }
+
+  function dismissPopover() {
+    if (currentPopover) {
+      currentPopover.dismiss().then(() => { currentPopover = null; });
+    }
+  }
+
+  customElements.define('popover-example-page', class ModalContent extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `
+        <ion-list>
+          <ion-list-header>Ionic</ion-list-header>
+          <ion-item button>Learn Ionic</ion-item>
+          <ion-item button>Documentation</ion-item>
+          <ion-item button>Showcase</ion-item>
+          <ion-item button>GitHub Repo</ion-item>
+          <ion-item lines="none" detail="false" button onClick="dismissPopover()">Close</ion-item>
+        </ion-list>
+      `;
+    }
+  });
+</script>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from '@ionic/angular';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-artist',
@@ -76,8 +76,13 @@ export class ArtistPage {
   //   this.navCtrl.navigateBack('/home');
   // }
 
-  abrirLetra(musica) {
-    console.log("Abrir letra: ", musica);
+  abrirCifra(musica) {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        musica: musica
+      }
+    };
+    this.router.navigate(['music-page'], navigationExtras);
   }
 
 }

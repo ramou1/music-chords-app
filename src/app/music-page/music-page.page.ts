@@ -9,6 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MusicPagePage implements OnInit {
 
   musicaEscolhida: any;
+  rolagem_automatica_escolha: boolean = false;
+  rolagem_automatica: any = "play-outline"
 
   constructor(private route: ActivatedRoute, private router: Router) { 
     this.route.queryParams.subscribe(params => {
@@ -24,6 +26,18 @@ export class MusicPagePage implements OnInit {
 
   ionViewWillEnter(){
     console.log("Música Escolhida: ", this.musicaEscolhida);
+  }
+
+  rolagem() {
+    this.rolagem_automatica_escolha = !this.rolagem_automatica_escolha;
+
+    if(this.rolagem_automatica_escolha) {
+      this.rolagem_automatica = "play-outline";
+    } 
+    else {
+      this.rolagem_automatica = "stop-outline";
+    }
+    
   }
 
 }

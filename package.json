@@ -57,7 +57,7 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
   },
-  "description": "An Ionic project",
+  "description": "Chords App",
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},

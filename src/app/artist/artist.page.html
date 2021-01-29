@@ -30,13 +30,13 @@
 
   <ion-list>
     <ion-list-header>Musics</ion-list-header>
-    <ion-item *ngFor="let musica of musicas" (click)="abrirLetra(musica)">
+    <ion-item *ngFor="let musica of musicas" (click)="abrirCifra(musica)">
       <ion-thumbnail slot="start">
         <img class="radius-thumb" src="../assets/imgs/{{ musica.icon ? musica.icon : 'default-music' }}.png">
       </ion-thumbnail>
       <ion-label>
-        <h3>Lorem ipsum</h3>
-        <p>consectetur adipiscing elit. Duis ut urna neque.</p>
+        <h3>{{musica.name}}</h3>
+        <!-- <p>consectetur adipiscing elit. Duis ut urna neque.</p> -->
       </ion-label>
     </ion-item>
   </ion-list>
